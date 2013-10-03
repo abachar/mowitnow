@@ -124,4 +124,9 @@ public class Mower {
 	public void setOrientation(Orientation orientation) {
 		this.orientation = orientation;
 	}
+
+	@Override
+	public String toString() {
+		return String.format("%d %d %S", position.getX(), position.getY(), orientation);
+	}
 }
