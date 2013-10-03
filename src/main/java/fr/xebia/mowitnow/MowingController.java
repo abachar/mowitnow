@@ -20,21 +20,19 @@ public class MowingController {
 	 * @return Mowers output final positions
 	 */
 	public List<String> mow(List<String> mowingInstructions) throws MowingException {
+		MowingContext context = new MowingContext();
 		List<String> output = new ArrayList<String>();
 
 		// Create surface
-		Surface surface = createSurface(mowingInstructions.get(0));
-		if (surface != null) {
-			for (int i = 1; i < mowingInstructions.size(); i += 2) {
+		context.setSurface(createSurface(mowingInstructions.get(0)));
 
-				// Initial mower coordinates and orientation
-				Mower mower = createMower(surface, mowingInstructions.get(i));
+		for (int i = 1; i < mowingInstructions.size(); i += 2) {
+			Mower mower = createMower(context, mowingInstructions.get(i));
 
-				// Execute instructions
-				if (i + 1 <= mowingInstructions.size()) {
-					executeInstructions(mower, mowingInstructions.get(i + 1));
-					output.add(mower.toString());
-				}
+			// Execute instructions
+			if (i + 1 <= mowingInstructions.size()) {
+				executeInstructions(mower, mowingInstructions.get(i + 1));
+				output.add(mower.toString());
 			}
 		}
 
@@ -61,11 +59,11 @@ public class MowingController {
 	/**
 	 * Create mower using the x, y and orientation given in the row
 	 *
-	 * @param surface area to mow
+	 * @param context mowing context
 	 * @param row     input instructions
 	 * @throws MowingException if the row is invalid
 	 */
-	private Mower createMower(Surface surface, String row) throws MowingException {
+	private Mower createMower(MowingContext context, String row) throws MowingException {
 
 		// Validate line
 		Pattern p = Pattern.compile("^([1-9]\\d*) ([1-9]\\d*) ([NESW])$");
@@ -74,7 +72,7 @@ public class MowingController {
 			throw new MowingException("Invalid mower coordinates at line: " + row);
 		}
 
-		return new Mower(surface, new Position(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))),
+		return new Mower(context, new Position(Integer.parseInt(m.group(1)), Integer.parseInt(m.group(2))),
 				Orientation.valueOf(m.group(3)));
 	}
 
