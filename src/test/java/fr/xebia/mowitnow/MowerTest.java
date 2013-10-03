@@ -40,6 +40,26 @@ public class MowerTest {
 	}
 
 	/**
+	 * Test of Mower.rotateRight method
+	 *
+	 * @param currentOrientation  Current orientation
+	 * @param expectedOrientation Expected orientation after rotation
+	 */
+	@Test
+	@Parameters(method = "rotateRightParameters")
+	public void testRotateRight(Orientation currentOrientation, Orientation expectedOrientation) {
+
+		// Create new mower
+		Mower mower = new Mower(surface, new Position(0, 0), currentOrientation);
+
+		// Rotate right
+		mower.rotateRight();
+
+		// Test the new orientation
+		Assertions.assertThat(mower.getOrientation()).isEqualTo(expectedOrientation);
+	}
+
+	/**
 	 * @return collection of parameters to execute testRotateLeft
 	 */
 	public static Object[] rotateLeftParameters() {
@@ -48,6 +68,18 @@ public class MowerTest {
 				{Orientation.WEST, Orientation.SOUTH},
 				{Orientation.SOUTH, Orientation.EAST},
 				{Orientation.EAST, Orientation.NORTH},
+		};
+	}
+
+	/**
+	 * @return collection of parameters to execute testRotateRight
+	 */
+	public static Object[] rotateRightParameters() {
+		return new Object[][]{
+				{Orientation.NORTH, Orientation.EAST},
+				{Orientation.EAST, Orientation.SOUTH},
+				{Orientation.SOUTH, Orientation.WEST},
+				{Orientation.WEST, Orientation.NORTH},
 		};
 	}
 }

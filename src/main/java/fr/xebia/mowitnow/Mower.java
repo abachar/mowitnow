@@ -61,7 +61,20 @@ public class Mower {
 	 * Perform a right rotation
 	 */
 	public void rotateRight() {
-		throw new NotImplementedException();
+		switch (orientation) {
+			case NORTH:
+				orientation = Orientation.EAST;
+				break;
+			case EAST:
+				orientation = Orientation.SOUTH;
+				break;
+			case SOUTH:
+				orientation = Orientation.WEST;
+				break;
+			case WEST:
+				orientation = Orientation.NORTH;
+				break;
+		}
 	}
 
 	/**
