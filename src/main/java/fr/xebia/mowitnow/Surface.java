@@ -1,7 +1,5 @@
 package fr.xebia.mowitnow;
 
-import org.apache.commons.lang.NotImplementedException;
-
 /**
  * The mowing area
  *
@@ -33,7 +31,8 @@ public class Surface {
 	 * @return True if the position is in the area otherwise false
 	 */
 	public boolean isValidPosition(Position position) {
-		throw new NotImplementedException();
+		return (position.getX() >= 0) && (position.getX() <= limitX)
+				&& (position.getY() >= 0) && (position.getY() <= limitY);
 	}
 
 	public int getLimitX() {
