@@ -81,7 +81,26 @@ public class Mower {
 	 * Move one step forward if the next position is in the area
 	 */
 	public void moveForward() {
-		throw new NotImplementedException();
+		Position newPosition = null;
+		switch (orientation) {
+			case NORTH:
+				newPosition = new Position(position.getX(), position.getY() + 1);
+				break;
+			case EAST:
+				newPosition = new Position(position.getX() + 1, position.getY());
+				break;
+			case SOUTH:
+				newPosition = new Position(position.getX(), position.getY() - 1);
+				break;
+			case WEST:
+				newPosition = new Position(position.getX() - 1, position.getY());
+				break;
+		}
+
+		// If it' a valid position ?
+		if ((newPosition != null) && surface.isValidPosition(newPosition)) {
+			position = newPosition;
+		}
 	}
 
 	public Surface getSurface() {
