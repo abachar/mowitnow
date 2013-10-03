@@ -5,7 +5,7 @@ package fr.xebia.mowitnow;
  *
  * @author abachar
  */
-public class Surface {
+public class Surface implements MoveValidator {
 
 	/**
 	 * Maximum value of the X and Y coordinates

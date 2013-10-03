@@ -8,9 +8,9 @@ package fr.xebia.mowitnow;
 public class Mower {
 
 	/**
-	 * The mowing area
+	 * Move validator
 	 */
-	private Surface surface;
+	private MoveValidator moveValidator;
 
 	/**
 	 * The current position of the mower in the surface
@@ -29,8 +29,8 @@ public class Mower {
 	 * @param position    Initial position of the mower on the surface
 	 * @param orientation The initial value of orientation
 	 */
-	public Mower(Surface surface, Position position, Orientation orientation) {
-		this.surface = surface;
+	public Mower(MoveValidator moveValidator, Position position, Orientation orientation) {
+		this.moveValidator = moveValidator;
 		this.position = position;
 		this.orientation = orientation;
 	}
@@ -96,17 +96,18 @@ public class Mower {
 		}
 
 		// If it' a valid position ?
-		if ((newPosition != null) && surface.isValidPosition(newPosition)) {
+		if ((newPosition != null)
+				&& (moveValidator != null) && moveValidator.isValidPosition(newPosition)) {
 			position = newPosition;
 		}
 	}
 
-	public Surface getSurface() {
-		return surface;
+	public MoveValidator getMoveValidator() {
+		return moveValidator;
 	}
 
-	public void setSurface(Surface surface) {
-		this.surface = surface;
+	public void setMoveValidator(MoveValidator moveValidator) {
+		this.moveValidator = moveValidator;
 	}
 
 	public Position getPosition() {
