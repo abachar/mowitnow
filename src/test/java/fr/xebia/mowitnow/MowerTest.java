@@ -90,10 +90,10 @@ public class MowerTest {
 	 */
 	public static Object[] rotateLeftParameters() {
 		return new Object[][]{
-				{Orientation.NORTH, Orientation.WEST},
-				{Orientation.WEST, Orientation.SOUTH},
-				{Orientation.SOUTH, Orientation.EAST},
-				{Orientation.EAST, Orientation.NORTH},
+				{Orientation.N, Orientation.W},
+				{Orientation.W, Orientation.S},
+				{Orientation.S, Orientation.E},
+				{Orientation.E, Orientation.N},
 		};
 	}
 
@@ -102,10 +102,10 @@ public class MowerTest {
 	 */
 	public static Object[] rotateRightParameters() {
 		return new Object[][]{
-				{Orientation.NORTH, Orientation.EAST},
-				{Orientation.EAST, Orientation.SOUTH},
-				{Orientation.SOUTH, Orientation.WEST},
-				{Orientation.WEST, Orientation.NORTH},
+				{Orientation.N, Orientation.E},
+				{Orientation.E, Orientation.S},
+				{Orientation.S, Orientation.W},
+				{Orientation.W, Orientation.N},
 		};
 	}
 
@@ -115,28 +115,28 @@ public class MowerTest {
 	public static Object[] moveForwardParameters() {
 		return new Object[][]{
 				// Move North
-				{new Position(0, 0), Orientation.NORTH, new Position(0, 1)},
-				{new Position(0, LIMIT_Y), Orientation.NORTH, new Position(0, LIMIT_Y)},
-				{new Position(LIMIT_X, 0), Orientation.NORTH, new Position(LIMIT_X, 1)},
-				{new Position(LIMIT_X, LIMIT_Y), Orientation.NORTH, new Position(LIMIT_X, LIMIT_Y)},
+				{new Position(0, 0), Orientation.N, new Position(0, 1)},
+				{new Position(0, LIMIT_Y), Orientation.N, new Position(0, LIMIT_Y)},
+				{new Position(LIMIT_X, 0), Orientation.N, new Position(LIMIT_X, 1)},
+				{new Position(LIMIT_X, LIMIT_Y), Orientation.N, new Position(LIMIT_X, LIMIT_Y)},
 
 				// Move East
-				{new Position(0, 0), Orientation.EAST, new Position(1, 0)},
-				{new Position(0, LIMIT_Y), Orientation.EAST, new Position(1, LIMIT_Y)},
-				{new Position(LIMIT_X, 0), Orientation.EAST, new Position(LIMIT_X, 0)},
-				{new Position(LIMIT_X, LIMIT_Y), Orientation.EAST, new Position(LIMIT_X, LIMIT_Y)},
+				{new Position(0, 0), Orientation.E, new Position(1, 0)},
+				{new Position(0, LIMIT_Y), Orientation.E, new Position(1, LIMIT_Y)},
+				{new Position(LIMIT_X, 0), Orientation.E, new Position(LIMIT_X, 0)},
+				{new Position(LIMIT_X, LIMIT_Y), Orientation.E, new Position(LIMIT_X, LIMIT_Y)},
 
 				// Move South
-				{new Position(0, 0), Orientation.SOUTH, new Position(0, 0)},
-				{new Position(0, LIMIT_Y), Orientation.SOUTH, new Position(0, LIMIT_Y - 1)},
-				{new Position(LIMIT_X, 0), Orientation.SOUTH, new Position(LIMIT_X, 0)},
-				{new Position(LIMIT_X, LIMIT_Y), Orientation.SOUTH, new Position(LIMIT_X, LIMIT_Y - 1)},
+				{new Position(0, 0), Orientation.S, new Position(0, 0)},
+				{new Position(0, LIMIT_Y), Orientation.S, new Position(0, LIMIT_Y - 1)},
+				{new Position(LIMIT_X, 0), Orientation.S, new Position(LIMIT_X, 0)},
+				{new Position(LIMIT_X, LIMIT_Y), Orientation.S, new Position(LIMIT_X, LIMIT_Y - 1)},
 
 				// Move West
-				{new Position(0, 0), Orientation.WEST, new Position(0, 0)},
-				{new Position(0, LIMIT_Y), Orientation.WEST, new Position(0, LIMIT_Y)},
-				{new Position(LIMIT_X, 0), Orientation.WEST, new Position(LIMIT_X - 1, 0)},
-				{new Position(LIMIT_X, LIMIT_Y), Orientation.WEST, new Position(LIMIT_X - 1, LIMIT_Y)},
+				{new Position(0, 0), Orientation.W, new Position(0, 0)},
+				{new Position(0, LIMIT_Y), Orientation.W, new Position(0, LIMIT_Y)},
+				{new Position(LIMIT_X, 0), Orientation.W, new Position(LIMIT_X - 1, 0)},
+				{new Position(LIMIT_X, LIMIT_Y), Orientation.W, new Position(LIMIT_X - 1, LIMIT_Y)},
 		};
 	}
 }

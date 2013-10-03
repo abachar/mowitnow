@@ -1,7 +1,5 @@
 package fr.xebia.mowitnow;
 
-import org.apache.commons.lang.NotImplementedException;
-
 /**
  * The programmable mower
  *
@@ -42,17 +40,17 @@ public class Mower {
 	 */
 	public void rotateLeft() {
 		switch (orientation) {
-			case NORTH:
-				orientation = Orientation.WEST;
+			case N:
+				orientation = Orientation.W;
 				break;
-			case EAST:
-				orientation = Orientation.NORTH;
+			case E:
+				orientation = Orientation.N;
 				break;
-			case SOUTH:
-				orientation = Orientation.EAST;
+			case S:
+				orientation = Orientation.E;
 				break;
-			case WEST:
-				orientation = Orientation.SOUTH;
+			case W:
+				orientation = Orientation.S;
 				break;
 		}
 	}
@@ -62,17 +60,17 @@ public class Mower {
 	 */
 	public void rotateRight() {
 		switch (orientation) {
-			case NORTH:
-				orientation = Orientation.EAST;
+			case N:
+				orientation = Orientation.E;
 				break;
-			case EAST:
-				orientation = Orientation.SOUTH;
+			case E:
+				orientation = Orientation.S;
 				break;
-			case SOUTH:
-				orientation = Orientation.WEST;
+			case S:
+				orientation = Orientation.W;
 				break;
-			case WEST:
-				orientation = Orientation.NORTH;
+			case W:
+				orientation = Orientation.N;
 				break;
 		}
 	}
@@ -83,16 +81,16 @@ public class Mower {
 	public void moveForward() {
 		Position newPosition = null;
 		switch (orientation) {
-			case NORTH:
+			case N:
 				newPosition = new Position(position.getX(), position.getY() + 1);
 				break;
-			case EAST:
+			case E:
 				newPosition = new Position(position.getX() + 1, position.getY());
 				break;
-			case SOUTH:
+			case S:
 				newPosition = new Position(position.getX(), position.getY() - 1);
 				break;
-			case WEST:
+			case W:
 				newPosition = new Position(position.getX() - 1, position.getY());
 				break;
 		}

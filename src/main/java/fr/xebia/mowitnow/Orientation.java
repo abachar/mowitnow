@@ -6,8 +6,5 @@ package fr.xebia.mowitnow;
  * @author abachar
  */
 public enum Orientation {
-	NORTH,
-	EAST,
-	SOUTH,
-	WEST
+	N, E, S, W
 }
