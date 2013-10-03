@@ -35,8 +35,9 @@ public class MowerTest {
 		// Rotate left
 		mower.rotateLeft();
 
-		// Test the new orientation
+		// Only the orientation must change the position remains the same
 		Assertions.assertThat(mower.getOrientation()).isEqualTo(expectedOrientation);
+		Assertions.assertThat(mower.getPosition()).isEqualTo(new Position(0, 0));
 	}
 
 	/**
@@ -55,8 +56,9 @@ public class MowerTest {
 		// Rotate right
 		mower.rotateRight();
 
-		// Test the new orientation
+		// Only the orientation must change the position remains the same
 		Assertions.assertThat(mower.getOrientation()).isEqualTo(expectedOrientation);
+		Assertions.assertThat(mower.getPosition()).isEqualTo(new Position(0, 0));
 	}
 
 	/**
