@@ -102,7 +102,8 @@ public class MowingControllerTest {
 	public static Object[] mowParameters() {
 
 		return new String[][]{
-				{"/input.txt", "/output.txt"}
+				{"/input.txt", "/output.txt"},
+				{"/collision-input.txt", "/collision-output.txt"}
 		};
 	}
 }

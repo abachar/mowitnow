@@ -34,6 +34,8 @@ public class MowingController {
 				executeInstructions(mower, mowingInstructions.get(i + 1));
 				output.add(mower.toString());
 			}
+
+			context.addMower(mower);
 		}
 
 		return output;
