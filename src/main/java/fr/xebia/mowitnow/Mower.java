@@ -25,9 +25,9 @@ public class Mower {
 	/**
 	 * Constructor with the mowing area and the initial position of the mower in this area
 	 *
-	 * @param surface     the mowing area
-	 * @param position    Initial position of the mower on the surface
-	 * @param orientation The initial value of orientation
+	 * @param moveValidator Move validator
+	 * @param position      Initial position of the mower on the surface
+	 * @param orientation   The initial value of orientation
 	 */
 	public Mower(MoveValidator moveValidator, Position position, Orientation orientation) {
 		this.moveValidator = moveValidator;
